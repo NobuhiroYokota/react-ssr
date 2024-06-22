@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 9000;
 
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
 
   const html = ReactDOMServer.renderToString(
     React.createElement(App)
