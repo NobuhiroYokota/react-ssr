@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const App = require('../src/App').default; // クライアントサイドのAppコンポーネントをインポート
+const App = require('../src/App').default;
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 9000;
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.get('/', (req, res) => {
-  // サーバーサイドでReactアプリをレンダリングしてHTMLを生成する
+
   const html = ReactDOMServer.renderToString(
     React.createElement(App)
   );
