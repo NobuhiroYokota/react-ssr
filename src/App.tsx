@@ -11,6 +11,7 @@ import React from "react";
                 <p className="p-2"><span className="font-bold">学校:</span> 芝浦工業大学</p>
                 <p className="p-2"><span className="font-bold">好きな食べ物:</span> いくら</p>
                 <p className="p-2"><span className="font-bold">好きな趣味:</span> 車、ディズニー、オーケストラ</p>
+                <div>aaa</div>
               </div>
             </div>
           </div>
