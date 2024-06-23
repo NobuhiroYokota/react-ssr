@@ -43,11 +43,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html', // テンプレートとして使用するHTMLファイル
-      filename: 'index.html',   // 出力されるHTMLファイルの名前
-      chunks: ['client']        // バンドルされたクライアントサイドのスクリプトを含める
+      template: './index.html',
+      filename: 'index.html',
+      chunks: ['client']
     })
   ],
-  target: 'node', // サーバーサイド向けのバンドル
+  target: 'node',
   mode: 'development'
 };
