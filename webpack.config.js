@@ -61,7 +61,6 @@ module.exports = {
   plugins: [ new HtmlWebpackPlugin({
     template:"./index.html",
     filename:'inedx.html',
-    chunks:['server'],
     inject:"body"
   })
 ],
