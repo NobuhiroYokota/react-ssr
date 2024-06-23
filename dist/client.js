@@ -280,6 +280,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.tsx");
+/******/ 	module.exports = __webpack_exports__;
 /******/ 	
 /******/ })()
 ;

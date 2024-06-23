@@ -1,32 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const fs = require('fs');
-
-// const { exec } = require('child_process');
-// class HtmlGenerationPlugin {
-//     apply(compiler) {
-//       compiler.hooks.afterEmit.tapAsync('HtmlGenerationPlugin', (compilation, callback) => {
-//         exec('node dist/server.js', (err, stdout, stderr) => {
-//           if (err) { console.error(`Error executing server.js: ${stderr}`); callback(err);
-//         }
-//           else { fs.writeFileSync(path.resolve(__dirname, 'dist', 'index.html'), stdout);
-//             console.log('index.html has been generated.'); callback();
-//           }
-//         }
-//       );
-//     });
-//   }
-// }
 
 module.exports = {
   entry: {
-    client: './src/index.tsx',
-    server: './server/index.js'
+    client: './src/index.tsx',  // client.jsのエントリーポイント
+    server: './server/index.js' // server.jsのエントリーポイント
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
-    publicPath: './'
+    path: path.resolve(__dirname, 'dist'), // 出力先ディレクトリ
+    filename: '[name].js', // 出力されるファイル名
+    libraryTarget: 'commonjs2', // CommonJS形式で出力
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json']
@@ -58,12 +41,13 @@ module.exports = {
       }
     ]
   },
-  plugins: [ new HtmlWebpackPlugin({
-    template:"./index.html",
-    filename:'inedx.html',
-    inject:"body"
-  })
-],
-  target: 'node',
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html', // テンプレートとして使用するHTMLファイル
+      filename: 'index.html',   // 出力されるHTMLファイルの名前
+      chunks: ['client']        // バンドルされたクライアントサイドのスクリプトを含める
+    })
+  ],
+  target: 'node', // サーバーサイド向けのバンドル
   mode: 'development'
 };
