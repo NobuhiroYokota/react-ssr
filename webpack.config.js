@@ -1,4 +1,22 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const fs = require('fs');
+
+// const { exec } = require('child_process');
+// class HtmlGenerationPlugin {
+//     apply(compiler) {
+//       compiler.hooks.afterEmit.tapAsync('HtmlGenerationPlugin', (compilation, callback) => {
+//         exec('node dist/server.js', (err, stdout, stderr) => {
+//           if (err) { console.error(`Error executing server.js: ${stderr}`); callback(err);
+//         }
+//           else { fs.writeFileSync(path.resolve(__dirname, 'dist', 'index.html'), stdout);
+//             console.log('index.html has been generated.'); callback();
+//           }
+//         }
+//       );
+//     });
+//   }
+// }
 
 module.exports = {
   entry: {
@@ -40,6 +58,12 @@ module.exports = {
       }
     ]
   },
+  plugins: [ new HtmlWebpackPlugin({
+    template:"./index.html",
+    filename:'inedx.html',
+    chunks:['client']
+  })
+],
   target: 'node',
   mode: 'development'
 };
