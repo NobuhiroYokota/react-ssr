@@ -3,13 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    client: './src/index.tsx',  // client.jsのエントリーポイント
-    server: './server/index.js' // server.jsのエントリーポイント
+    client: './src/index.tsx',
+    server: './server/index.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist'), // 出力先ディレクトリ
-    filename: '[name].js', // 出力されるファイル名
-    libraryTarget: 'commonjs2', // CommonJS形式で出力
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    libraryTarget: 'commonjs2',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json']
